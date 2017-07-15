@@ -1,0 +1,93 @@
+{% extends 'learning/base.html' %}
+{% block title %}{{ course }}{% endblock %}
+{% block courses_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid songs-container" xmlns:style.display="http://www.w3.org/1999/xhtml">
+
+   <div class="row">
+
+
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body" style="height: 550px;">
+                    <a href="{% url 'learning:start_quiz1' course.id course_content.id quiz.id question1.id%}">
+                        {% if course.course_logo %}
+                            <img src="{{course.course_logo.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ course.course_name }}</h1>
+                    <h1><small>{{ course.course_description }}</small></h1>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Right Song Info -->
+      <div class="col-sm-8 col-md-9">
+
+            <div class="panel panel-default">
+
+                <form action="{% url 'learning:start_quiz1' course.id course_content.id quiz.id question1.id %}" method="post">
+                     {% csrf_token %}
+                    <div class = "ScrollStyle">
+
+
+
+                    <img src="{{ question1.question_description.url }}" class="img-responsive" >
+
+                    <div id="listOption">
+
+                            {% if error_message %}<p style="color:red; padding:12px;">{{ error_message }} !! </p>{% endif %}
+                             {% if hint_message %}<p style="color:green; padding:12px;">{{ question1.question_hint1 }}</p>{% endif %}
+                            {% if boolVal %}<p style="color:green; padding:12px;">You have chosen correct Answer !! Option {{question1.question_right_answer}}</p>{% endif %}
+                        {% if boolVal1 %}<p style="color:red; padding:12px;">Correct answer is Option {{question1.question_right_answer}}&nbsp;&nbsp;{{question1.question_explanation}}
+                        </p>{% endif %}
+
+                      <h4>&nbsp;&nbsp;&nbsp;{{question1.question_title}}</h4>
+                        <ul class="answers">
+                      <input type="radio" name="choice" value="1" id="1"><label for="1">&nbsp;&nbsp;&nbsp;<h4>{{ question1.question_option1 }}</h4></label><br/>
+                      <input type="radio" name="choice" value="2" id="2"><label for="2">&nbsp;&nbsp;&nbsp;<h4>{{ question1.question_option2 }}</h4></label><br/>
+                        <input type="radio" name="choice" value="3" id="3"><label for="3">&nbsp;&nbsp;&nbsp;<h4>{{ question1.question_option3 }}</h4></label><br/>
+                        <!--<input type="radio" name="choice" value="4" id="4"><label for="4">&nbsp;&nbsp;&nbsp;<h4>{{ question1.question_option4 }}</h4></label><br/>-->
+                          </ul>
+
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                         <div class="col-sm-offset-3 col-sm-10">
+
+                                  <button type="submit" class="btn btn-success btn-md btn-lg" name = "submitBtn">
+                            &nbsp;Submit
+                             </button>
+
+                                 <button type="submit" class="btn btn-success btn-md btn-lg" name = "hintBtn">
+                                 &nbsp; Take hint
+                            </button>
+
+                             <button type="submit" class="btn btn-success btn-md btn-lg" name = "nextBtn">
+                                 &nbsp; Next
+                            </button>
+
+
+                          </div>
+                         </div>
+
+                </div>
+                </form>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

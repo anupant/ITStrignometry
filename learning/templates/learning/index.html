@@ -1,0 +1,44 @@
+{% extends 'learning/base.html' %}
+{% block course_active %}active{% endblock %}
+
+{% block body %}
+<div class="courses-container container-fluid">
+
+    <!-- Index Page  -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>{{ user.username }}'s Courses</h3>
+        </div>
+         {% if courses %}
+          {% for course in courses %}
+               <div class="col-sm-20 col-lg-4">
+                    <div class="thumbnail">
+                        <a href="{% url 'learning:detail' course.id %}">
+                            <img src="{{ course.course_logo.url }}" class="img-responsive">
+                        </a>
+
+
+                        <div class="caption">
+                            <h2>{{ course.course_name }}</h2>
+
+                        </div>
+                 </div>
+
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+        {% else %}
+            <div class="col-sm-12">
+                <br>
+                 <h2> No course to display </h2>
+            </div>
+        {% endif %}
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+
+
+

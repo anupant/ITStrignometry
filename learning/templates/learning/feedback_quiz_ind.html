@@ -1,0 +1,146 @@
+{% extends 'learning/base.html' %}
+{% block title %}{{ course }}{% endblock %}
+{% block courses_active %}active{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid songs-container" xmlns:style.display="http://www.w3.org/1999/xhtml">
+
+
+     <div class="row">
+
+        <!-- Left Course Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'learning:detail' course.id %}">
+                        {% if course.course_logo %}
+                            <img src="{{course.course_logo.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ course.course_name }}</h1>
+                    <h1><small>{{ course.course_description }}</small></h1>
+
+                </div>
+            </div>
+        </div>
+
+
+
+      <div class="col-sm-8 col-md-9">
+
+            <div class="panel panel-default">
+
+                <!--These are some extra questions to help you understand the concepts
+                 <br>
+                <br>
+                <h1> Questions wrong </h1>
+                 Number of questions wrong : {{ alt_qList|length }} and wrong questions were :{{alt_qList}}
+                <br>
+                <br>
+                <h1> Hint taken </h1>
+                 Number of questions for which hints were taken: {{ hint_list|length }} and hints were taken for questions:{{hint_list}}
+                <br>
+                <br>
+                <h1> Question list length </h1>
+                {{dictLen}}
+                <br>
+                <br>-->
+
+
+
+
+
+                <div class = "ScrollStyle">
+                     <script>
+                  function myFunction() {
+                       var x = document.getElementById("answerDiv");
+                       x.style.display = 'block';
+                       x.style.color = 'green';
+
+                  }
+
+                  function myFunction1() {
+                       var x = document.getElementById("answerDiv");
+                       x.style.display = 'none';
+                    }
+                 </script>
+
+
+
+                    <form action="{% url 'learning:alternate_quiz' course.id course_content.id quiz.id %}" method="post">
+                    {% csrf_token %}
+
+                    <img src="{{ firstQuizObj.alternate_question_description.url }}" class="img-responsive">
+                    <p id="listOption">
+
+                    <p><h4>&nbsp;&nbsp;&nbsp;{{firstQuizObj.alternate_question_title}}</h4></p>
+                        <ul class="answers">
+                            <div style="display:none" id = "answerDiv"><h4>The correct answer is option {{ firstQuizObj.alternate_question_right_answer }}</h4> </div>
+
+                            <!--<input type="hidden" name="answer" id = "answer" value="answer"> <h4>The correct answer is option {{ quizObj.alternate_question_right_answer }}</h4>-->
+                      <input type="radio" name="choice" value="1" id="1"><label for="1">&nbsp;&nbsp;&nbsp;<h4>{{ firstQuizObj.alternate_question_option1 }}</h4></label><br/>
+                      <input type="radio" name="choice" value="2" id="2"><label for="2">&nbsp;&nbsp;&nbsp;<h4>{{ firstQuizObj.alternate_question_option2 }}</h4></label><br/>
+                            <input type="radio" name="choice" value="3" id="3"><label for="3">&nbsp;&nbsp;&nbsp;<h4>{{ firstQuizObj.alternate_question_option3 }}</h4></label><br/>
+                        <!--<input type="radio" name="choice" value="4" id="4"><label for="4">&nbsp;&nbsp;&nbsp;<h4>{{ quizObj.alternate_question_option4 }}</h4></label><br/>-->
+
+                        </ul>
+
+                        <div class="col-sm-offset-1 col-sm-5">
+                        <button type="submit" class="btn btn-primary btn-md btn-md-9" name = "Next" onclick="myFunction1()">
+                            &nbsp;Next
+                         </button>
+                            </div>
+
+                       </form>
+
+
+                       <div class="form-group">
+                         <div class="col-sm-offset-3 col-sm-10">
+                       <button type="submit" class="btn btn-success btn-md btn-md-9" name = "checkAnswer" onclick="myFunction()">
+                            &nbsp;Check Answer
+                         </button>
+
+                             <a target="_blank" href="{% url 'learning:detail' course.id%}">
+                                 <button type="button" class="btn btn-success btn-md-9">
+                                 &nbsp; Back to Lesson List
+                            </button></a>
+
+                         </div>
+                         </div>
+
+
+                    </div>
+
+                    <br>
+                    <br>
+
+
+
+
+                     <!--<div class="form-group">
+                         <div class="col-sm-offset-3 col-sm-10">
+
+                             <button type="submit" class="btn btn-success btn-md btn-lg" name = "submitBtn">
+                            &nbsp;Submit
+                             </button>
+
+                         </div>
+                         </div>-->
+
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

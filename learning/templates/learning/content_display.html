@@ -1,0 +1,67 @@
+{% extends 'learning/base.html' %}
+{% block title %}{{ course }}{% endblock %}
+{% block courses_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+
+        <!-- Left course Info -->
+
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body" style=" height: 550px;">
+                    <a href="{% url 'learning:content_display' course.id course_content.id%}">
+                        {% if course.course_logo %}
+                            <img src="{{course.course_logo.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ course.course_name }}</h1>
+                    <h1><small>{{ course.course_description }}</small></h1>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Right course Info -->
+        <div class="col-sm-8 col-md-9">
+
+            <div class="panel panel-default">
+                <div class = "ScrollStyle2">
+                    <br class="col-sm-offset-1 col-sm-10">
+                    <h2 style="color:green; align:left">&nbsp;&nbsp;{{course_content.course_content_description}}</h2></br>
+
+                    <img src="{{ course_content.course_content1.url }}" height="100" width="100" class="img-responsive">
+                     </div>
+
+
+
+
+                </div>
+
+
+                     <div class="form-group">
+                         <div class="col-sm-offset-3 col-sm-10">
+                     <a href="{% url 'learning:detail' course.id %}">
+                                  <button type="button" class="btn btn-success btn-md btn-lg">
+                            &nbsp; Back to Lesson List
+                             </button>
+                    </a>
+
+
+                          </div>
+                         </div>
+                <div style="height: 100px;"> </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

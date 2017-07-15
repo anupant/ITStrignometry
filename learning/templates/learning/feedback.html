@@ -1,0 +1,127 @@
+{% extends 'learning/base.html' %}
+{% block title %}{{ course }}{% endblock %}
+{% block courses_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid quiz-container">
+
+    <div class="row">
+
+        <!-- Left Course Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'learning:detail' course.id %}">
+                        {% if course.course_logo %}
+                            <img src="{{course.course_logo.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ course.course_name }}</h1>
+                    <h1><small>{{ course.course_description }}</small></h1>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Course and Quiz Info -->
+        <div class="col-sm-8 col-md-9">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>Lesson feedback</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>View Lesson</th>
+                            <th>Take Quiz </th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>{{course_content.course_content_description}}</td>
+                                <td>
+                                    <a target="_blank" href="{% url 'learning:content_display' course.id course_content.id%}">
+                                  <button type="button" class="btn btn-success btn-md-9">
+                            &nbsp; View Lesson
+                             </button>
+                                    </a>
+                                </td>
+
+
+
+                                <td>
+                                    <a target="_blank" href="{% url 'learning:start_quiz' course.id course_content.id quiz.id%}">
+                                 <button type="button" class="btn btn-success btn-md-9">
+                                 &nbsp; Take quiz
+                            </button></a>
+
+                                </td>
+
+
+
+                            </tr>
+                                </tbody>
+                            </table>
+
+                             <h1> Feedback </h1>
+                              Total no of questions :{{numOfQuestions}}<br>
+                              <!--Wrong Attempts : {{noOfWrongAttempts}}<br>-->
+                              Question Correct :{{noOfQuestionsCorrect}}<br>
+
+                              <h1> Questions wrong </h1>
+                              {% if alt_qList %}
+                               Number of questions wrong : {{ alt_qList|length }} and wrong questions were :{{alt_qList}}
+                               {% else %}
+                               {% if boolZeroCorrect %}
+                                You haven't attempted any questions
+                               {% else %}
+                                No wrong question
+                               {% endif %}
+                               {% endif %}
+
+                              <h1> Hint taken </h1>
+                               {% if hint_list %}
+                               Number of questions for which hints were taken: {{ hint_list|length }} and hints were taken for questions:{{hint_list}}
+                               {% else %}
+                                No hints taken
+                               {% endif %}
+                               <br>
+                               <br>
+                               {% if hint_list or alt_qList %}
+                                  <a target="_blank" href="{% url 'learning:alternate_quiz' course.id course_content.id quiz.id %} ">
+                                 <button type="button" class="btn btn-success btn-md-9">
+                                 &nbsp; Extra practice quiz
+                            </button></a>
+                               {% endif %}
+
+                               <br>
+                               <br>
+                                  <a target="_blank" href="{% url 'learning:detail' course.id%}">
+                                 <button type="button" class="btn btn-success btn-md-9">
+                                 &nbsp; Back to Lesson List
+                            </button></a>
+
+
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}
