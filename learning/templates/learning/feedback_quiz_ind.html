@@ -70,7 +70,7 @@
 
 
 
-                    <form action="{% url 'learning:alternate_quiz' course.id course_content.id quiz.id %}" method="post">
+                    <form action="{% url 'learning:alternate_quiz' course.id course_content.id quiz.id %}" style="display: inline;" method="post">
                     {% csrf_token %}
 
                     <img src="{{ firstQuizObj.alternate_question_description.url }}" class="img-responsive">
@@ -103,7 +103,7 @@
                             &nbsp;Check Answer
                          </button>
 
-                             <a target="_blank" href="{% url 'learning:detail' course.id%}">
+                             <a href="{% url 'learning:detail' course.id%}">
                                  <button type="button" class="btn btn-success btn-md-9">
                                  &nbsp; Back to Lesson List
                             </button></a>

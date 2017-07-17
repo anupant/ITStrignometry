@@ -50,7 +50,7 @@
                             <tr>
                                 <td>{{course_content.course_content_description}}</td>
                                 <td>
-                                    <a target="_blank" href="{% url 'learning:content_display' course.id course_content.id%}">
+                                    <a href="{% url 'learning:content_display' course.id course_content.id%}">
                                   <button type="button" class="btn btn-success btn-md-9">
                             &nbsp; View Lesson
                              </button>
@@ -60,7 +60,7 @@
 
                                {% for quiz in course_content.quiz_set.all %}
                                 <td>
-                                    <a target="_blank" href="{% url 'learning:start_quiz' course.id course_content.id quiz.id%}">
+                                    <a href="{% url 'learning:start_quiz' course.id course_content.id quiz.id%}">
                                  <button type="button" class="btn btn-success btn-md-9">
                                  &nbsp; Take quiz
                             </button></a>
@@ -78,7 +78,7 @@
 
             </div>
 
-            <a target="_blank" href="{% url 'learning:index_page'%}">
+            <a href="{% url 'learning:index_page'%}">
                                  <button type="button" class="btn btn-success btn-md-9">
                                  &nbsp; Back to course page
                             </button></a>

@@ -51,7 +51,7 @@
                             <tr>
                                 <td>{{course_content.course_content_description}}</td>
                                 <td>
-                                    <a target="_blank" href="{% url 'learning:content_display' course.id course_content.id%}">
+                                    <a href="{% url 'learning:content_display' course.id course_content.id%}">
                                   <button type="button" class="btn btn-success btn-md-9">
                             &nbsp; View Lesson
                              </button>
@@ -61,7 +61,7 @@
 
 
                                 <td>
-                                    <a target="_blank" href="{% url 'learning:start_quiz' course.id course_content.id quiz.id%}">
+                                    <a href="{% url 'learning:start_quiz' course.id course_content.id quiz.id%}">
                                  <button type="button" class="btn btn-success btn-md-9">
                                  &nbsp; Take quiz
                             </button></a>
@@ -99,7 +99,7 @@
                                <br>
                                <br>
                                {% if hint_list or alt_qList %}
-                                  <a target="_blank" href="{% url 'learning:alternate_quiz' course.id course_content.id quiz.id %} ">
+                                  <a href="{% url 'learning:alternate_quiz' course.id course_content.id quiz.id %} ">
                                  <button type="button" class="btn btn-success btn-md-9">
                                  &nbsp; Extra practice quiz
                             </button></a>
@@ -107,7 +107,7 @@
 
                                <br>
                                <br>
-                                  <a target="_blank" href="{% url 'learning:detail' course.id%}">
+                                  <a href="{% url 'learning:detail' course.id%}">
                                  <button type="button" class="btn btn-success btn-md-9">
                                  &nbsp; Back to Lesson List
                             </button></a>
