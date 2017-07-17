@@ -119,6 +119,7 @@
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/GroupProject/TourneyManager/app/proguard-rules.pro" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/GroupProject/TourneyManager/.idea/runConfigurations.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/GroupProject/TourneyManager/settings.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/learning/templates/learning/start_quiz1.html" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/GroupProject/TourneyManager/app/src/main/res/values/strings.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/GroupProject/TourneyManager/app/src/main/res/values/styles.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/GroupProject/TourneyManager/app/src/main/res/values-v21/styles.xml" />
@@ -179,11 +180,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ITStrignometry/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36466774">
+            <state vertical-scroll-proportion="0.0">
               <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../Viberr-master/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.025423728">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -220,16 +231,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feedback.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/learning/templates/learning/feedback.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-66.875">
-              <caret line="109" column="37" selection-start-line="109" selection-start-column="37" selection-end-line="109" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="endAlternateQuiz.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/learning/templates/learning/endAlternateQuiz.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -250,7 +251,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -277,6 +278,7 @@
         <option value="$PROJECT_DIR$/learning/templates/learning/endAlternateQuiz.html" />
         <option value="$PROJECT_DIR$/learning/templates/learning/detail.html" />
         <option value="$PROJECT_DIR$/ITStrignometry/settings.py" />
+        <option value="$PROJECT_DIR$/../../Viberr-master/.gitignore" />
       </list>
     </option>
   </component>
@@ -711,13 +713,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/learning/templates/learning/feedback_quiz_ind.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/learning/templates/learning/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1089,8 +1084,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ITStrignometry/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36466774">
+        <state vertical-scroll-proportion="0.0">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Viberr-master/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.025423728">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
