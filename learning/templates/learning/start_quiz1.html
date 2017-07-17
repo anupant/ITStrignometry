@@ -30,7 +30,7 @@
 
             <div class="panel panel-default">
 
-                <form action="{% url 'learning:start_quiz1' course.id course_content.id quiz.id question1.id %}" method="post">
+                <form action="{% url 'learning:start_quiz1' course.id course_content.id quiz.id question1.id %}" style="display: inline;" method="post">
                      {% csrf_token %}
                     <div class = "ScrollStyle">
 
