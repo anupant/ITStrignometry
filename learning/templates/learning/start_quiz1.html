@@ -38,13 +38,8 @@
 
                     <img src="{{ question1.question_description.url }}" class="img-responsive" >
 
-                    <div id="listOption">
 
-                            {% if error_message %}<p style="color:red; padding:12px;">{{ error_message }} !! </p>{% endif %}
-                             {% if hint_message %}<p style="color:green; padding:12px;">{{ question1.question_hint1 }}</p>{% endif %}
-                            {% if boolVal %}<p style="color:green; padding:12px;">You have chosen correct Answer !! Option {{question1.question_right_answer}}</p>{% endif %}
-                        {% if boolVal1 %}<p style="color:red; padding:12px;">Correct answer is Option {{question1.question_right_answer}}&nbsp;&nbsp;{{question1.question_explanation}}
-                        </p>{% endif %}
+
 
                       <h4>&nbsp;&nbsp;&nbsp;{{question1.question_title}}</h4>
                         <ul class="answers">
@@ -53,6 +48,14 @@
                         <input type="radio" name="choice" value="3" id="3"><label for="3">&nbsp;&nbsp;&nbsp;<h4>{{ question1.question_option3 }}</h4></label><br/>
                         <!--<input type="radio" name="choice" value="4" id="4"><label for="4">&nbsp;&nbsp;&nbsp;<h4>{{ question1.question_option4 }}</h4></label><br/>-->
                           </ul>
+
+                        <div id="listOption">
+                        {% if error_message %}<p style="color:red; padding:12px;">{{ error_message }} !! </p>{% endif %}
+                             {% if hint_message %}<p style="color:green; padding:12px;">{{ question1.question_hint1 }}</p>{% endif %}
+                            {% if boolVal %}<p style="color:green; padding:12px;">You have chosen correct Answer !! Option {{question1.question_right_answer}}</p>{% endif %}
+                        {% if boolVal1 %}<p style="color:red; padding:12px;">Correct answer is Option {{question1.question_right_answer}}&nbsp;&nbsp;{{question1.question_explanation}}
+                        </p>{% endif %}
+
 
 
                     </div>
